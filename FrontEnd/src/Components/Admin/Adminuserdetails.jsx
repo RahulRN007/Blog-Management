@@ -8,6 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 import { MdVisibility } from "react-icons/md";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
+import API from "../../config";
 
 function Adminuserdetails() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -25,7 +26,7 @@ function Adminuserdetails() {
   // Fetch all users
   const fetchDetails = async () => {
     try {
-      const cat = await axios.get("http://localhost:5000/fetchuserdetails");
+      const cat = await axios.get(`${API}/fetchuserdetails`);
       setUserDetails(cat.data.data);
     } catch (error) {
       console.log("fetch user details failed frontend");
@@ -40,7 +41,7 @@ function Adminuserdetails() {
   const handleShowEdit = async (id) => {
     setShowEditModal(true);
     try {
-      const res = await axios.get(`http://localhost:5000/edituserdetails/${id}`);
+      const res = await axios.get(`${API}/edituserdetails/${id}`);
       setSelectedUser(res.data.data);
     } catch (error) {
       console.log("Fetch user details failed frontend", error);
@@ -51,7 +52,7 @@ function Adminuserdetails() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`http://localhost:5000/updateuserdetails/${selecteduser._id}`, selecteduser);
+      const res = await axios.post(`${API}/updateuserdetails/${selecteduser._id}`, selecteduser);
       console.log("Updated:", res.data);
       fetchDetails();
       setShowEditModal(false);
@@ -66,7 +67,7 @@ function Adminuserdetails() {
       setProfileUser(user);
       setShowProfilePopup(true);
 
-      const cat = await axios.get(`http://localhost:5000/userblogdetails/${user._id}`);
+      const cat = await axios.get(`${API}/userblogdetails/${user._id}`);
       setUserBlogDetails(cat.data.data);
     } catch (error) {
       console.error("Error loading profile blogs:", error);
@@ -133,7 +134,7 @@ function Adminuserdetails() {
                   <tr key={user._id}>
                     <td>
                       <img
-                        src={`http://localhost:5000/${user.profileImage}`}
+                        src={`${API}/${user.profileImage}`}
                         alt="profile"
                         style={{ borderRadius: "50%", cursor: "pointer" }}
                         height={"30rem"}
@@ -226,7 +227,7 @@ function Adminuserdetails() {
                   <div className="profile-container">
                     <div className="profile-header" style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
                       <img
-                        src={`http://localhost:5000/${profileUser.profileImage}`}
+                        src={`${API}/${profileUser.profileImage}`}
                         alt="Profile"
                         className="profile-avatar"
                         style={{ width: 80, height: 80, borderRadius: '50%' }}
@@ -261,7 +262,7 @@ function Adminuserdetails() {
                               >
                                 <img
                                   className="myblogs-image"
-                                  src={`http://localhost:5000/${blog.image}`}
+                                  src={`${API}/${blog.image}`}
                                   alt="Blog"
                                 />
                               </div>

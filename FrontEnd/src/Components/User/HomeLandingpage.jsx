@@ -4,7 +4,7 @@ import { MdVisibility } from "react-icons/md";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useNavigate,useLocation } from "react-router-dom";
 import axios from "axios";
-
+import API from "../../config";
 function HomeLandingpage({ searchTerm }) {
   const [values, setValues] = useState([]);
   const [likedBlogs, setLikedBlogs] = useState([]);
@@ -22,7 +22,7 @@ const filteredBlogs = values.filter((item) =>
   const displayMyBlogs = async () => {
     try {
       const userId = localStorage.getItem("userid");
-      const res = await axios.get(`http://localhost:5000/displayhomeblogs?userId=${userId}`);
+      const res = await axios.get(`${API}/displayhomeblogs?userId=${userId}`);
       setValues(res.data.data);
 
       // Extract which blogs are already liked
@@ -50,7 +50,7 @@ const filteredBlogs = values.filter((item) =>
     e.preventDefault(); // prevent link navigation
     const userId = localStorage.getItem("userid");
     try {
-      await axios.post("http://localhost:5000/updatelikecount", {
+      await axios.post(`${API}/updatelikecount`, {
         blogId,
         userId,
       });
@@ -82,7 +82,7 @@ const filteredBlogs = values.filter((item) =>
   const handleBlogClick = async (blogId) => {
     const userId = localStorage.getItem("userid");
     try {
-      await axios.post("http://localhost:5000/updateviewcount", {
+      await axios.post(`${API}/updateviewcount`, {
         blogId,
         userId,
       });
@@ -109,7 +109,7 @@ const filteredBlogs = values.filter((item) =>
               >
                 <img
                   className="HomeLandingpage-card-img"
-                  src={`http://localhost:5000/${item.image}`}
+                  src={`${API}/${item.image}`}
 
                 />
               </div>
@@ -153,7 +153,7 @@ const filteredBlogs = values.filter((item) =>
                     onClick={() => navigate(`/profile/${item.user._id}`)}
                   >
                     <img
-                      src={`http://localhost:5000/${item.user.profileImage}`}
+                      src={`${API}/${item.user.profileImage}`}
                       style={{ borderRadius: "50%", cursor: "pointer" }}
                       height={"30rem"}
                       width={"30rem"}

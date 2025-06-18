@@ -4,7 +4,7 @@ import logo from "../../assets/logo.png"
 import { Link, useNavigate } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import axios from 'axios';
-
+import API from "../../config";
 function LoginPage() {
   const navigate = useNavigate()
   const [email,setEmail] = useState([])
@@ -13,7 +13,7 @@ function LoginPage() {
  const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const response = await axios.post("http://localhost:5000/userloginverification", { email, password });
+    const response = await axios.post(`${API}/userloginverification`, { email, password });
     const { msg, data, token } = response.data;
 
     if (msg === "Account Successfully found") {

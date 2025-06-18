@@ -4,7 +4,7 @@ import logo from "../../assets/logo.png";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios" 
 import { Navigate } from 'react-router-dom';
-
+import API from "../../config";
 function Createaccountpage() {
   const navigate = useNavigate()
   const [values, setValues] = useState({
@@ -28,7 +28,7 @@ function Createaccountpage() {
     e.preventDefault()
     console.log(values)
     try {
-      const cat = await axios.post("http://localhost:5000/userdetailssave", values)
+      const cat = await axios.post(`${API}/userdetailssave`, values)
       if (cat.data.msg == "User Data Saved successfully") {
         navigate("/loginpage")
       }

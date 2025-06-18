@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import '../../src/Styles/Navbarcomponent.css'; // Make sure this path is correct
 import logo from "../../src/assets/logo.png"
+import API from "../config";
 function Navbarcomponent( { searchTerm, setSearchTerm  }) {
   const navigate = useNavigate();
   const userId = localStorage.getItem("userid");
@@ -81,7 +82,7 @@ onChange={(e) => setSearchTerm(e.target.value)}
                 <div className="profile-dropdown-toggle">
                   <div className="avatar-circle">
                       <img
-                  src={`http://localhost:5000/${userDetails.profileImage}`}
+                  src={`${API}/${userDetails.profileImage}`}
                       style={{ borderRadius: "50%", cursor: "pointer" }}
                       height={"30rem"}
                       width={"30rem"}

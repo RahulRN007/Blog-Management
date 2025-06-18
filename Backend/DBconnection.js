@@ -15,13 +15,18 @@
 
 // module.exports = connectDB;
 
+// DBconnection.js
+const mongoose = require('mongoose');
 
-var mongoose = require("mongoose")
-mongoose.connect("mongodb://localhost:27017/Blogmanagement")
-var db = mongoose.connection
-db.on('error',console.error.bind(console,'connection error'))
-db.once('open',function(){
-    console.log("Db connection Succesfull")
-})
+const connectDB = async () => {
+  try {
+    await mongoose.connect('mongodb://localhost:27017/Blogmanagement');
+        console.log("✅ MongoDB Connected Successfully");
+  } catch (error) {
+    console.error("MongoDB connection failed:", error);
+    process.exit(1);
+  }
+};
 
-module.exports = db
+module.exports = connectDB;
+

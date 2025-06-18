@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { MdVisibility } from "react-icons/md";
 import Navbarcomponent from "../Navbarcomponent"; // ✅ Make sure path is correct
+import API from "../../config";
 
 function Profilepage() {
   const [profileImage, setProfileImage] = useState(defaultAvatar);
@@ -25,7 +26,7 @@ function Profilepage() {
       const formData = new FormData();
       formData.append("profileImage", file);
       try {
-        await axios.post(`http://localhost:5000/updateprofileimage/${loggedInUserId}`, formData);
+        await axios.post(`${API}/updateprofileimage/${loggedInUserId}`, formData);
       } catch (err) {
         console.log("Error uploading image:", err);
       }
@@ -34,7 +35,7 @@ function Profilepage() {
 
   const displayUserProfileDetails = async () => {
     try {
-      const res = await axios.post(`http://localhost:5000/displayuserprofiledetails/${profileUserId}`);
+      const res = await axios.post(`${API}/displayuserprofiledetails/${profileUserId}`);
       setProfileDetails(res.data.data);
     } catch (error) {
       console.log("Error fetching profile details:", error);
@@ -43,7 +44,7 @@ function Profilepage() {
 
   const displayMyBlogsProfile = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/displaymyblogs/${profileUserId}`);
+      const res = await axios.get(`${API}/displaymyblogs/${profileUserId}`);
       setMyBlogs(res.data.data);
     } catch (error) {
       console.log("Error fetching my blogs:", error);
@@ -65,7 +66,7 @@ function Profilepage() {
 
   useEffect(() => {
     if (profiledetails?.profileImage) {
-      setProfileImage(`http://localhost:5000/${profiledetails.profileImage}`);
+      setProfileImage(`${API}/${profiledetails.profileImage}`);
     }
   }, [profiledetails]);
 
@@ -174,7 +175,7 @@ function Profilepage() {
                       <div className="myblogs-image-wrapper" onClick={() => handleBlogClick(blog._id)}>
                         <img
                           className="myblogs-image"
-                          src={`http://localhost:5000/${blog.image}`}
+                          src={`${API}/${blog.image}`}
                           alt="Blog"
                         />
                       </div>

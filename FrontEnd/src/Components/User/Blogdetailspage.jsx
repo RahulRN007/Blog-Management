@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../../Styles/Blogdetailspage.css";
 import Navbarcomponent from "../Navbarcomponent"; // ✅ adjust path if needed
-
+import API from "../../config";
 function Blogdetailspage() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ function Blogdetailspage() {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/blog/${id}`);
+        const res = await axios.get(`${API}//blog/${id}`);
         setBlog(res.data.data);
         setComments(res.data.data.comments || []);
       } catch (err) {
@@ -33,7 +33,7 @@ function Blogdetailspage() {
     if (!newComment.trim()) return;
 
     try {
-      const response = await axios.post("http://localhost:5000/blog/comment", {
+      const response = await axios.post(`${API}//blog/comment`, {
         blogId: id,
         userId: loggedInUserId,
         commentText: newComment.trim(),
@@ -66,7 +66,7 @@ function Blogdetailspage() {
         </div>
 
         <img
-          src={`http://localhost:5000/${blog.image}`}
+          src={`${API}//${blog.image}`}
           alt="Blog"
           className="blog-detail-img"
         />
@@ -75,7 +75,7 @@ function Blogdetailspage() {
           <span>
             Author:&nbsp;
             <img
-              src={`http://localhost:5000/${blog.user?.profileImage}`}
+              src={`${API}//${blog.user?.profileImage}`}
               style={{ borderRadius: "50%", cursor: "pointer" }}
               height="30rem"
               width="30rem"
@@ -100,7 +100,7 @@ function Blogdetailspage() {
             {comments.map((cmt, index) => (
               <div className="comment-item" key={index}>
                 <img
-                  src={`http://localhost:5000/${cmt.user?.profileImage}`}
+                  src={`${API}//${cmt.user?.profileImage}`}
                   style={{ borderRadius: "50%", cursor: "pointer" }}
                   height="30rem"
                   width="30rem"

@@ -5,6 +5,7 @@ import axios from 'axios'
 import LineChart from '../Linechart'
 import BarChart from '../Barchart'
 import BarChartlikes from '../Barchartlikes'
+import API from "../../config";
 
 function Admindashboard() {
   const [datas, setDatas] = useState([])
@@ -14,7 +15,7 @@ function Admindashboard() {
 
   const deactivatedAccount = async () => {
     try {
-      const cat = await axios.get("http://localhost:5000/deactivatedaccount")
+      const cat = await axios.get(`${API}/deactivatedaccount`)
       setDeactivated(cat.data.data)
     } catch (error) {
       console.log("DEACTIVATED ACC FRONTEND ISSUE")
@@ -23,7 +24,7 @@ function Admindashboard() {
 
   const totalUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/totalusers")
+      const res = await axios.get(`${API}/totalusers`)
       setDatas(res.data.data)
     } catch (error) {
       console.log("totalusers frontend issue")
@@ -32,7 +33,7 @@ function Admindashboard() {
 
   const activeUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/activeusers")
+      const res = await axios.get(`${API}/activeusers`)
       setActive(res.data.data)
     } catch (error) {
       console.log("activeusers frontend issue")
@@ -109,7 +110,7 @@ function Admindashboard() {
                     {deactivated.map((item, index) => (
                       <tr key={index}>
                         <img
-                          src={`http://localhost:5000/${item.profileImage}`}
+                          src={`${API}/${item.profileImage}`}
                           alt="profile"
                           style={{ borderRadius: "50%", backgroundSize: "contain" }}
                           height={"30rem"}

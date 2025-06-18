@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import API from "../config";
 import {
   Chart as ChartJS,
   BarElement,
@@ -26,7 +27,7 @@ const BarChart = () => {
   useEffect(() => {
     const fetchBlogViews = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/fetchblogdetails');
+        const response = await axios.get(`${API}/fetchblogdetails`);
         const blogs = response.data.data;
 
         const sortedBlogs = blogs.sort((a, b) => b.views - a.views);

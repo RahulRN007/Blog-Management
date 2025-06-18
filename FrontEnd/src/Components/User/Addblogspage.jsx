@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../../Styles/Addblogspage.css";
 import Navbarcomponent from "../Navbarcomponent"; // ✅ Import navbar
+import API from "../../config";
 
 function Addblogspage() {
   const [formData, setFormData] = useState({
@@ -68,7 +69,7 @@ function Addblogspage() {
       data.append("user", userId);
 
       const res = await axios.post(
-        "http://localhost:5000/savecreatedblogs",
+        `${API}//savecreatedblogs`,
         data,
         {
           headers: {

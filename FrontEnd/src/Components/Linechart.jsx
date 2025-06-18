@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import API from "../config";
 import {
   Chart as ChartJS,
   LineElement,
@@ -26,7 +27,7 @@ const LineChart = () => {
   useEffect(() => {
     const fetchMonthlyViews = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/monthlyviews");
+        const res = await axios.get(`${API}/monthlyviews`);
         const data = Array(12).fill(0); // index 0 = Jan, 11 = Dec
 
         res.data.forEach(item => {

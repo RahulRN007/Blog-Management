@@ -5,7 +5,7 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Navbarcomponent from "../Navbarcomponent"; // ✅ Import navbar
-
+import API from "../../config";
 function Myblogspage() {
   const [values, setValues] = useState([]);
   const [likedBlogs, setLikedBlogs] = useState([]);
@@ -16,7 +16,7 @@ function Myblogspage() {
 
   const displayMyBlogs = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/displaymyblogs/${userid}`);
+      const response = await axios.get(`${API}/displaymyblogs/${userid}`);
       setValues(response.data.data);
     } catch (error) {
       console.log("displaymyblogs frontend issue");
@@ -49,7 +49,7 @@ function Myblogspage() {
                 <div className="Myblogspage-card">
                   <img
                     className="Myblogspage-card-img"
-                    src={`http://localhost:5000/${blog.image}`}
+                    src={`${API}/${blog.image}`}
                     alt=""
                     height={"30rem"}
                     width={"30rem"}
@@ -78,7 +78,7 @@ function Myblogspage() {
 
                       <div className="Myblogspage-author">
                         <img
-                          src={`http://localhost:5000/${blog.user.profileImage}`}
+                          src={`${API}/${blog.user.profileImage}`}
                           style={{ borderRadius: "50%", cursor: "pointer" }}
                           height={"30rem"}
                           width={"30rem"}

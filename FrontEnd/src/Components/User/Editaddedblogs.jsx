@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../../Styles/Editaddedblogs.css";
 import Navbarcomponent from "../Navbarcomponent"; // ✅ adjust path if needed
-
+import API from "../../config";
 function Editaddedblogs() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ function Editaddedblogs() {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/blog/${id}`);
+        const res = await axios.get(`${API}/blog/${id}`);
         const blog = res.data.data;
         setFormData({
           title: blog.title,
@@ -32,7 +32,7 @@ function Editaddedblogs() {
           category: blog.category,
           content: blog.content,
         });
-        setImagePreview(`http://localhost:5000/${blog.image}`);
+        setImagePreview(`${API}/${blog.image}`);
       } catch (error) {
         console.error("Error fetching blog for edit:", error);
       }
@@ -67,7 +67,7 @@ function Editaddedblogs() {
     if (imageFile) updatedBlog.append("image", imageFile);
 
     try {
-      await axios.post(`http://localhost:5000/blog/update/${id}`, updatedBlog, {
+      await axios.post(`${API}/blog/update/${id}`, updatedBlog, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

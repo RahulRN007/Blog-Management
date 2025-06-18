@@ -4,6 +4,7 @@ import axios from "axios";
 import "../../Styles/Admin/BlogDetailBlogExpansion.css"; // ✅ updated CSS file name
 import Sidebar from "../Sidebar";
 
+import API from "../../config";
 function Adminuserblogexpansion() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ function Adminuserblogexpansion() {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/blog/${id}`);
+        const res = await axios.get(`${API}/blog/${id}`);
         setBlog(res.data.data);
       } catch (err) {
         console.error("Error fetching blog:", err);
@@ -36,7 +37,7 @@ function Adminuserblogexpansion() {
           </div>
 
           <img
-            src={`http://localhost:5000/${blog.image}`}
+            src={`${API}/${blog.image}`}
             alt="Blog"
             className="blogdetail-image"
           />

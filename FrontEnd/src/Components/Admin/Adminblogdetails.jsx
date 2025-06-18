@@ -4,27 +4,9 @@ import Sidebar from '../Sidebar'; // Adjust path if needed
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import API from "../../config";
 
-const blogData = [
-    {
-        profile: "https://via.placeholder.com/40",
-        title: "The Rise of React",
-        category: "Frontend",
-        owner: "Rahul Nath",
-    },
-    {
-        profile: "https://via.placeholder.com/40",
-        title: "Backend Scaling Tips",
-        category: "Backend",
-        owner: "Krishna R",
-    },
-    {
-        profile: "https://via.placeholder.com/40",
-        title: "UX Design Basics",
-        category: "UI/UX",
-        owner: "Sara Thomas",
-    },
-];
+
 
 function Adminblogdetails() {
     const [blogdetails, setBlogdetails] = useState([]);
@@ -50,7 +32,7 @@ function Adminblogdetails() {
 
     const fetchDetails = async () => {
         try {
-            const cat = await axios.get("http://localhost:5000/fetchblogdetails");
+            const cat = await axios.get(`${API}/fetchblogdetails`);
             setBlogdetails(cat.data.data);
         } catch (error) {
             console.log("fetch user details failed frontend");
@@ -61,7 +43,7 @@ function Adminblogdetails() {
     const handleDelete = async () => {
         setShow(false)
         try {
-            const cat = await axios.post("http://localhost:5000/deleteblog", { id: selectedBlogId });
+            const cat = await axios.post(`${API}/deleteblog`, { id: selectedBlogId });
             console.log(cat.data.data)
              if (cat.data.msg == "Blog Deleted successfully") {
                 alert("successfully deleted")
@@ -115,7 +97,7 @@ function Adminblogdetails() {
                                     <tr key={index}>
                                         <td>
                                             <img
-                                                src={`http://localhost:5000/${blog.user.profileImage}`}
+                                                src={`${API}/${blog.user.profileImage}`}
                                                 alt="profile"
                                                 style={{ borderRadius: "50%" ,backgroundSize:"contain"}}
                                                 height={"30rem"}
