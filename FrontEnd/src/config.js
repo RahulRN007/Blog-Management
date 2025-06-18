@@ -1,2 +1,2 @@
-const API = import.meta.env.VITE_API_BASE_URL;
+const API = "https://blog-management-backend-brqt.onrender.com";
 export default API;
