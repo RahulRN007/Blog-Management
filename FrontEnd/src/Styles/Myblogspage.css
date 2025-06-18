@@ -1,0 +1,145 @@
+:root {
+  --card-radius: 16px;
+  --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --primary-color: #1f1f1f;
+  --accent-color: #ff5c5c;
+  --text-color: #333;
+  --background: #f5f5f5;
+}
+
+.Myblogspage-main {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem;
+  background-color: var(--background);
+  width: 100vw;
+  height: 85vh;
+}
+
+.Myblogspage-sub {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 2rem;
+  width: 100%;
+  overflow-y: auto;
+  justify-items: center;
+}
+.Myblogspage-sub a{
+  height: 17rem;
+}
+.Myblogspage-sub::-webkit-scrollbar {
+  width: 6px;
+}
+
+.Myblogspage-sub::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 8px;
+}
+
+.Myblogspage-card {
+  width: 300px;
+  background-color: #fff;
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  height: 17rem;
+  max-height: 17rem;
+  transition: 0.3s ease;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.Myblogspage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.Myblogspage-card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.Myblogspage-card-content {
+  padding: 1rem;
+}
+
+.Myblogspage-card-title {
+  font-size: 1rem;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+}
+
+.Myblogspage-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-color);
+}
+
+.Myblogspage-views {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #777;
+}
+
+.Myblogspage-view-icon {
+  font-size: 1.2rem;
+}
+
+.Myblogspage-author {
+  font-weight: 500;
+  color: var(--accent-color);
+}
+
+/* Responsive media queries */
+@media (max-width: 992px) {
+  .Myblogspage-sub {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .Myblogspage-sub {
+    grid-template-columns: 1fr;
+  }
+}
+
+.Myblogspage-like {
+  cursor: pointer;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.Myblogspage-like-icon {
+  font-size: 22px;
+  color: #aaa;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.Myblogspage-like-icon:hover {
+  transform: scale(1.2);
+  color: #e74c3c;
+}
+
+.liked {
+  color: #e74c3c;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+

@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  font-family: sans-serif;
+}
+
+.loginpage-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 1rem;
+  width: 100vw;
+  background: url("../assets/bg4.jpg");
+  background-size: cover;
+}
+
+.loginpage-sub {
+  display: flex;
+  width: 50rem;
+  height: 30rem;
+  max-width: 1000px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  flex-direction: row;
+}
+
+.loginpage-form {
+  flex: 1;
+  padding: 3rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginpage-form h4 {
+  margin-bottom: 0.5rem;
+   position: relative;
+   top: .5rem;
+  text-align: center;
+}
+
+.loginpage-text-center p {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #888;
+  position: relative;
+   top: .3rem;
+}
+
+.loginpage-form form {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  justify-content: center;
+  align-items: center;
+  
+
+}
+
+.loginpage-form input {
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: auto;
+}
+
+.loginpage-login-btn {
+  padding: 0.75rem;
+  background: linear-gradient(to right, #f27121, #e94057, #8a2387);
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.loginpage-forgot{
+  font-size: 0.9rem;
+  color: #888;
+  
+}
+
+.loginpage-create-account {
+  position: relative;
+  top: -1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginpage-create-account button {
+  margin-left: 0.5rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid #e94057;
+  color: #e94057;
+  background-color: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all .3s ease;
+
+}
+
+.loginpage-create-account button:hover {
+  background: linear-gradient(to right, #f27121, #e94057, #8a2387);
+  color: white;
+
+}
+
+.loginpage-right-section {
+  flex: 1;
+  background: transparent;
+  border: 4px solid white;
+  color: white;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-size: cover;
+}
+
+.loginpage-right-section h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.loginpage-right-section p {
+  font-size: 0.95rem;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .loginpage-sub {
+        display: flex;
+    width: 50rem;
+    height: 33rem;
+    max-width: 1000px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    flex-direction: row;
+    
+    
+  }
+
+  .loginpage-right-section {
+    display: none;
+  }
+  
+}
+
+.loginpage-logo {
+     width: 6rem;
+    height: 6rem;
+}
+
+.loginpage-logoname-soul {
+  font-weight: 700;
+  color: orange;
+}
+
+.loginpage-logoname-sync {
+  font-weight: 700;
+  color: darkblue;
+}
+
+.loginpage-slogan {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-style: italic;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  quotes: "“" "”";
+}
+
+.loginpage-slogan::before {
+  content: open-quote;
+}
+
+.loginpage-slogan::after {
+  content: close-quote;
+}

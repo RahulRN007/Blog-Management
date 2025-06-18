@@ -1,0 +1,18 @@
+.Adminsettings-main{
+    display: flex;
+  height: 100vh;
+  width: 100vw;
+   background: url("../../assets/bg5.jpg");
+  background-size: cover;
+    
+}
+.Adminsettings-sub{
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    width: 105rem;
+    height: 98.3vh;
+    position: relative;
+    left: 14.5rem;
+    top: .5rem;
+    border-radius: 10px;
+}

@@ -1,0 +1,104 @@
+.Adminblogdetails-container {
+  
+   display: flex;
+  height: 100vh;
+  width: 100vw;
+   background: url("../../assets/bg5.jpg");
+  background-size: cover;
+}
+
+/* Make sure sidebar works properly */
+.sidebar {
+  flex-shrink: 0;
+}
+
+/* Main content fills remaining space */
+.Adminblogdetails-main {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.Adminblogdetails-sub {
+  width: 95%;
+  
+  background: transparent;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.Adminblogdetails-table {
+    margin-top: 1rem;
+    margin-left: .5rem;
+    width: 98%;
+    /* margin: 20px auto; */
+    border-collapse: collapse;
+    /* Ensures the table cells are joined */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Adds subtle shadow for depth */
+    /* Rounded corners for the table */
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+     height: 2rem;
+}
+
+.Adminblogdetails-table th,
+.Adminblogdetails-table td {
+    padding: 2px 1px;
+    /* Adds space inside the cells */
+    text-align: center;
+    /* Center-align text */
+    border: 1px solid #ddd;
+    height: 2rem;
+}
+
+.Adminblogdetails-table th {
+  background: linear-gradient(to right, #8a2387);
+    color: white;
+    font-weight: bold;
+    
+}
+
+.Adminblogdetails-table td {
+    background: rgba(255, 255, 255, 0.3);
+    
+    backdrop-filter: blur(5px);
+}
+
+.Adminblogdetails-table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.3);
+    
+    backdrop-filter: blur(5px);
+    /* Zebra-striping for rows */
+}
+
+.Adminblogdetails-table tr:hover {
+    background-color: #e2f3f5;
+    /* Highlight row on hover */
+}
+
+.Adminblogdetails-table-caption {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.Adminblogdetails-table-body-buttons {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.3s ease;
+}
+
+.Adminblogdetails-table-body-buttons:hover {
+    background-color: #0056b3;
+}

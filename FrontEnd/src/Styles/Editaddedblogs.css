@@ -1,0 +1,118 @@
+/* Google-Forms Inspired Stylish CSS */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  /* background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%); */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.Editaddedblogs-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+  min-height: 85vh;
+  background: white;
+  width: 100vw;
+  
+}
+
+.Editaddedblogs-card {
+    background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    position: relative;
+    overflow-y: auto;
+  backdrop-filter: blur(20px);
+  /* background: rgba(255, 255, 255, 0.7); */
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  max-width: 550px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  transition: 0.3s ease;
+  animation: fadeIn 0.6s ease-out;
+  height: 30rem;
+}
+.Editaddedblogs-card::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.Editaddedblogs-card h2 {
+  text-align: center;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+.Editaddedblogs-card label {
+  font-weight: 600;
+  color: #222;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.Editaddedblogs-card input,
+.Editaddedblogs-card select,
+.Editaddedblogs-card textarea {
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  transition: border 0.2s ease;
+  color: black;
+}
+
+.Editaddedblogs-card input:focus,
+.Editaddedblogs-card select:focus,
+.Editaddedblogs-card textarea:focus {
+  border-color: #e94057;
+  outline: none;
+}
+
+.Editaddedblogs-card textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.Editaddedblogs-card button {
+  padding: 0.9rem;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.Editaddedblogs-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 75, 43, 0.4);
+}
+
+@media (max-width: 600px) {
+  .Editaddedblogs-card {
+    padding: 2rem 1.5rem;
+    border-radius: 1rem;
+  }
+}

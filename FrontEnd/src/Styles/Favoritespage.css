@@ -1,0 +1,109 @@
+:root {
+  --card-radius: 16px;
+  --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --primary-color: #1f1f1f;
+  --accent-color: #ff5c5c;
+  --text-color: #333;
+  --background: #f5f5f5;
+}
+
+.Favorites-main {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem;
+  background-color: var(--background);
+  width: 100vw;
+  height: 85vh;
+}
+
+.Favorites-sub {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 2rem;
+  width: 100%;
+  overflow-y: auto;
+  justify-items: center;
+}
+
+.Favorites-sub a{
+  height: 17rem;
+}
+.Favorites-sub::-webkit-scrollbar {
+  width: 6px;
+}
+
+.Favorites-sub::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 8px;
+}
+
+.Favorites-card {
+  width: 300px;
+  background-color: #fff;
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  height: 17rem;
+  transition: 0.3s ease;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.Favorites-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.Favorites-card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.Favorites-card-content {
+  padding: 1rem;
+}
+
+.Favorites-card-title {
+  font-size: 1rem;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+}
+
+.Favorites-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-color);
+}
+
+.Favorites-views {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #777;
+}
+
+.Favorites-view-icon {
+  font-size: 1.2rem;
+}
+
+.Favorites-author {
+  font-weight: 500;
+  color: var(--accent-color);
+}
+
+/* Responsive media queries */
+@media (max-width: 992px) {
+  .Favorites-sub {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .Favorites-sub {
+    grid-template-columns: 1fr;
+  }
+}

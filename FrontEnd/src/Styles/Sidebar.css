@@ -1,0 +1,118 @@
+
+
+.sidebar-logo {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  user-select: none;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav ul li {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 1.1rem;
+  gap: 1rem;
+}
+
+.sidebar-nav ul li:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.sidebar-icon {
+  font-size: 1.3rem;
+}
+.sidebar-options{
+    font-size: 16px;
+}
+
+
+
+/* Sidebar defaults */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: linear-gradient(to bottom, #8a2387, #e94057, #f27121);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  position: relative; /* Use relative instead of absolute */
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+/* Logo text styling */
+.logoname-soul {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.logoname-sync {
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+/* Mobile sidebar hidden */
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translateX(-50%);
+    height: 100vh;
+    z-index: 1000;
+    border-radius: 0;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+}
+
+/* Sidebar toggle button (hamburger) */
+.sidebar-toggle-btn {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  z-index: 1100;
+  cursor: pointer;
+}
+
+/* Show toggle button on small screens */
+@media (max-width: 768px) {
+  .sidebar-toggle-btn {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -220px; /* Hide off screen */
+    width: 220px;
+    height: 100vh;
+    transform: translateX(0);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    border-radius: 0;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+}
+
+

@@ -1,0 +1,224 @@
+.Adminuserdetails-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background: url("../../assets/bg5.jpg");
+    background-size: cover;
+}
+
+/* Sidebar assumed already styled properly */
+
+.Adminuserdetails-main {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.Adminuserdetails-sub {
+    width: 95%;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.Adminuserdetails-table {
+    width: 98%;
+    margin: 1rem auto;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.Adminuserdetails-table th {
+    background: linear-gradient(to right, #8a2387, #e94057, #f27121);
+    color: white;
+    padding: 12px 8px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.Adminuserdetails-table td {
+    padding: 10px 8px;
+    text-align: center;
+    color: #333;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.Adminuserdetails-table tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.Adminuserdetails-table tbody tr:hover {
+    background-color: rgba(226, 243, 245, 0.7);
+    transition: background-color 0.3s ease;
+}
+
+/* Optional: Add slight transition for hover effect */
+.Adminuserdetails-table tr {
+    transition: background-color 0.3s ease;
+}
+
+.Adminuserdetails-table-body-buttons {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.3s ease;
+}
+
+.Adminuserdetails-table-body-buttons:hover {
+    background-color: #0056b3;
+}
+
+/* Search box */
+
+
+.Adminuserdetails-form {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+}
+
+
+.Adminuserdetails-table {
+    margin-left: 1rem;
+    width: 98%;
+    /* margin: 20px auto; */
+    border-collapse: collapse;
+    /* Ensures the table cells are joined */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Adds subtle shadow for depth */
+    /* Rounded corners for the table */
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+}
+
+.Adminuserdetails-table th,
+.Adminuserdetails-table td {
+    padding: 2px 1px;
+    /* Adds space inside the cells */
+    text-align: center;
+    /* Center-align text */
+    border: 1px solid #ddd;
+}
+
+.Adminuserdetails-table th {
+    background: linear-gradient(to right, #8a2387);
+    color: white;
+    font-weight: bold;
+
+}
+
+.Adminuserdetails-table td {
+    background: rgba(255, 255, 255, 0.3);
+
+    backdrop-filter: blur(5px);
+
+
+}
+
+.Adminuserdetails-table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.3);
+
+    backdrop-filter: blur(5px);
+    /* Zebra-striping for rows */
+}
+
+.Adminuserdetails-table tr:hover {
+    background-color: #e2f3f5;
+    /* Highlight row on hover */
+}
+
+.Adminuserdetails-table-caption {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+
+.searchBox {
+    display: flex;
+    align-items: center;
+    background: #2f3640;
+    border-radius: 50px;
+    position: relative;
+    height: 2.8rem;
+    width: 18rem;
+}
+
+.searchButton {
+    color: white;
+    position: absolute;
+    right: 8px;
+    width: 2rem;
+    top: 0.3rem;
+    height: 2.3rem;
+    border-radius: 50%;
+    background: var(--gradient-2, linear-gradient(90deg, #2AF598 0%, #009EFD 100%));
+    border: 0;
+    display: inline-block;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+}
+
+.searchInput {
+    border: none;
+    background: none;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    padding: 18px 46px 24px 26px;
+}
+
+.Adminuserdetails-table-body-buttons {
+    background-color: wheat;
+    border-radius: 15px;
+    height: 1.5rem;
+}
+
+
+
+.profile-popup::-webkit-scrollbar {
+    width: 6px;
+}
+
+.profile-popup::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.profile-popup::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    border: none;
+}
+
+.profile-popup-overlay {
+    position: 'fixed';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 'rgba(0:0:0:0.5)';
+    display: 'flex';
+    justify-content: 'center';
+    align-items: 'center';
+    z-index: 1000;
+}
+
+.profile-popup {
+    background-color: '#fff';
+    padding: '20px';
+    border-radius: '8px';
+    width: '20rem';
+    max-height: '80vh';
+    overflow-y: 'auto';
+}
